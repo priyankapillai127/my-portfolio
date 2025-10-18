@@ -1,10 +1,21 @@
+import ProjectsGrid from "@/components/ProjectsGrid";
+import HomeHero from "@/components/HomeHero";
+
+export const metadata = {
+  title: "Priyanka Pillai — Portfolio",
+  description: "Software Engineer • Next.js • TypeScript",
+};
+
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-900 text-white">
-      <h1 className="text-4xl font-bold">Hello Priyanka 👋</h1>
-      <p className="mt-4 text-lg text-gray-300">
-        Tailwind and Next.js are working perfectly!
-      </p>
-    </div>
+    <main className="min-h-screen">
+      {/* HERO (client) */}
+      <HomeHero />
+
+      {/* PROJECTS (client component inside server is OK) */}
+      <section id="projects" className="mx-auto max-w-5xl px-4 py-12">
+        <ProjectsGrid />
+      </section>
+    </main>
   );
 }
