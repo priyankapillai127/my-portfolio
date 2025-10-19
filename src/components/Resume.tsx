@@ -61,8 +61,6 @@ export default function Resume() {
           ))}
         </ul>
       </Section>
-
-      {/* Skills */}
       <Section title="Skills">
         <div className="grid sm:grid-cols-2 gap-4 text-sm">
           <div><span className="font-medium">Languages:</span> {skills.languages.join(", ")}</div>
