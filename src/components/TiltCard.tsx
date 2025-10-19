@@ -1,6 +1,11 @@
 "use client";
+
 import { useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
+
+// Narrow types for the instance VanillaTilt attaches to the element
+type VanillaTiltInstance = { destroy: () => void };
+type TiltDiv = HTMLDivElement & { vanillaTilt?: VanillaTiltInstance };
 
 export default function TiltCard({
   children,
@@ -9,8 +14,7 @@ export default function TiltCard({
   children: React.ReactNode;
   className?: string;
 }) {
-  // Tell TS this div can have a custom property called vanillaTilt
-  const ref = useRef<HTMLDivElement & { vanillaTilt?: any }>(null);
+  const ref = useRef<TiltDiv | null>(null);
 
   useEffect(() => {
     const node = ref.current;
@@ -24,17 +28,13 @@ export default function TiltCard({
       scale: 1.02,
     });
 
-    // clean up on unmount
     return () => {
       node.vanillaTilt?.destroy();
     };
   }, []);
 
   return (
-    <div
-      ref={ref}
-      className={className}
-    >
+    <div ref={ref} className={className}>
       {children}
     </div>
   );
