@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
 
-// Narrow types for the instance VanillaTilt attaches to the element
 type VanillaTiltInstance = { destroy: () => void };
 type TiltDiv = HTMLDivElement & { vanillaTilt?: VanillaTiltInstance };
 
