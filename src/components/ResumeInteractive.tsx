@@ -77,9 +77,8 @@ export default function ResumeInteractive() {
           groups={{
             Languages: skills.languages,
             "Frameworks & Libraries": skills.frameworks,
-            Tools: skills.tools,
-            "Platforms & Databases": skills.platforms,
-            "Soft Skills": skills.soft,
+            "Systems & Cloud": skills.systems,
+            "Databases & Tools": skills.databases,
           }}
         />
       </Collapse>

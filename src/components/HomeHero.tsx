@@ -8,10 +8,18 @@ import { motion } from "framer-motion";
 
 const NAME = "Priyanka Pillai";
 const TITLE = "Software Engineer";
+const BIO =
+  "MS CS student at Arizona State University and incoming SWE Intern at Rocket Mortgage. Previously a Lead Software Developer at Collins Aerospace, building cloud-native microservices on AWS & Azure for 50K+ users. I love turning complex systems problems into clean, reliable software.";
 const EMAIL = "ppillai4@asu.edu";
 const GITHUB = "priyankapillai127";
 const LINKEDIN = "priyanka-pillai0712/";
 const LEETCODE_URL = "https://leetcode.com/u/priyankapillai/";
+
+const HIGHLIGHTS = [
+  { label: "4+ yrs", sub: "Industry experience" },
+  { label: "50K+", sub: "Users served" },
+  { label: "1M+", sub: "Signals/day processed" },
+];
 
 export default function HomeHero() {
   return (
@@ -19,25 +27,41 @@ export default function HomeHero() {
       <LiveCodeWallpaper />
 
       <motion.div
-        className="mx-auto max-w-5xl px-4 py-20 md:py-32 grid md:grid-cols-[180px_1fr] gap-8 items-center relative z-10"
+        className="mx-auto max-w-5xl px-4 py-20 md:py-32 grid md:grid-cols-[200px_1fr] gap-10 items-center relative z-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
+        {/* Avatar */}
         <motion.div
-          className="relative h-40 w-40 md:h-48 md:w-48 overflow-hidden rounded-full border-4 border-white/10 shadow-2xl"
+          className="relative h-44 w-44 md:h-52 md:w-52 overflow-hidden rounded-full border-4 border-white/10 shadow-2xl mx-auto md:mx-0"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
           <Image src="/priyanka.jpg" alt={`${NAME} headshot`} fill className="object-cover" />
         </motion.div>
 
-        <div className="space-y-4">
-          <div className="space-y-2">
+        {/* Text content */}
+        <div className="space-y-5">
+          <div className="space-y-1">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 dark:from-blue-300 dark:to-purple-400">
               {NAME}
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 font-medium">{TITLE}</p>
+          </div>
+
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">
+            {BIO}
+          </p>
+
+          {/* Stats row */}
+          <div className="flex gap-6">
+            {HIGHLIGHTS.map(({ label, sub }) => (
+              <div key={sub} className="text-center">
+                <div className="text-lg font-bold text-blue-500 dark:text-blue-400">{label}</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400">{sub}</div>
+              </div>
+            ))}
           </div>
 
           <SocialLinks
@@ -47,7 +71,7 @@ export default function HomeHero() {
             leetcodeUrl={LEETCODE_URL}
           />
 
-          <div className="flex gap-4 pt-4">
+          <div className="flex gap-4 pt-2">
             <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/Resume"
