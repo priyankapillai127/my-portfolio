@@ -10,7 +10,7 @@ const NAME = "Priyanka Pillai";
 const ROLE = "Software Engineer";
 const TAGLINE = "SWE Intern @ Rocket Mortgage · MS IT @ ASU";
 const BIO =
-  "Currently interning at Rocket Mortgage, previously a Lead Software Developer at Collins Aerospace building cloud-native microservices on AWS & Azure for 50K+ users. Passionate about distributed systems, ML pipelines, and shipping software that actually matters.";
+  "I build software that solves hard problems — from cloud-native microservices at Collins Aerospace to ML pipelines on AWS. Currently interning at Rocket Mortgage and looking for what's next.";
 const EMAIL = "ppillai4@asu.edu";
 const GITHUB = "priyankapillai127";
 const LINKEDIN = "priyanka-pillai0712";

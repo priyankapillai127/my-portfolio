@@ -2,6 +2,7 @@ import ProjectsGrid from "@/components/ProjectsGrid";
 import HomeHero from "@/components/HomeHero";
 import SkillsSection from "@/components/SkillsSection";
 import CertificationsSection from "@/components/CertificationsSection";
+import AboutSection from "@/components/AboutSection";
 
 export const metadata = {
   title: "Priyanka Pillai — Portfolio",
@@ -13,7 +14,8 @@ export default function Home() {
     <main className="min-h-screen">
       <HomeHero />
 
-      <div className="mx-auto max-w-5xl px-4 space-y-20 py-16">
+      <div className="mx-auto max-w-5xl px-4 space-y-24 py-16">
+        <AboutSection />
         <SkillsSection />
         <ProjectsGrid />
         <CertificationsSection />
