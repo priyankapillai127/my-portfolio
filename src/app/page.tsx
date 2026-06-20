@@ -1,10 +1,11 @@
 import ProjectsGrid from "@/components/ProjectsGrid";
 import HomeHero from "@/components/HomeHero";
 import SkillsSection from "@/components/SkillsSection";
+import CertificationsSection from "@/components/CertificationsSection";
 
 export const metadata = {
   title: "Priyanka Pillai — Portfolio",
-  description: "Software Engineer · MS CS @ ASU · Incoming SWE Intern @ Rocket Mortgage",
+  description: "Software Engineer · MS IT @ ASU · SWE Intern @ Rocket Mortgage",
 };
 
 export default function Home() {
@@ -12,13 +13,11 @@ export default function Home() {
     <main className="min-h-screen">
       <HomeHero />
 
-      <section id="skills" className="mx-auto max-w-5xl px-4 py-12">
+      <div className="mx-auto max-w-5xl px-4 space-y-20 py-16">
         <SkillsSection />
-      </section>
-
-      <section id="projects" className="mx-auto max-w-5xl px-4 py-12">
         <ProjectsGrid />
-      </section>
+        <CertificationsSection />
+      </div>
     </main>
   );
 }

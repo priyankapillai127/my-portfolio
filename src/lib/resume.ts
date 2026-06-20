@@ -27,7 +27,7 @@ export const profile = {
   phone: "(623) 273-0882",
   email: "ppillai4@asu.edu",
   github: "https://github.com/priyankapillai127",
-  linkedin: "https://www.linkedin.com/in/priyanka-pillai0712/",
+  linkedin: "https://www.linkedin.com/in/priyanka-pillai0712",
   leetcode: "https://leetcode.com/u/priyankapillai/",
 };
 
@@ -101,6 +101,30 @@ export const education: Education[] = [
     degree: "Bachelor of Engineering, Computer Science and Engineering",
     start: "Aug 2016",
     end: "Aug 2020",
+  },
+];
+
+export type Certification = {
+  name: string;
+  issuer: string;
+  date: string;
+};
+
+export const certifications: Certification[] = [
+  {
+    name: "AWS Academy Graduate — Machine Learning for Natural Language Processing",
+    issuer: "Amazon Web Services (AWS)",
+    date: "2026",
+  },
+  {
+    name: "AWS Academy Graduate — Data Engineering",
+    issuer: "Amazon Web Services (AWS)",
+    date: "2026",
+  },
+  {
+    name: "Getting Started with Angular",
+    issuer: "Edureka",
+    date: "2026",
   },
 ];
 

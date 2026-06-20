@@ -1,10 +1,10 @@
 // src/components/Resume.tsx
-import { profile, experiences, projects, education, skills } from "@/lib/resume";
+import { profile, experiences, projects, education, skills, certifications } from "@/lib/resume";
 
 function Section({ title, children }: React.PropsWithChildren<{ title: string }>) {
   return (
     <section className="space-y-4">
-      <h2 className="text-sm font-bold tracking-widest uppercase text-blue-500 dark:text-blue-400 border-b border-gray-200 dark:border-gray-700 pb-1">
+      <h2 className="text-[11px] font-bold tracking-[0.18em] uppercase text-violet-500 dark:text-violet-400 border-b border-gray-100 dark:border-gray-800 pb-1.5">
         {title}
       </h2>
       <div className="space-y-4">{children}</div>
@@ -14,7 +14,7 @@ function Section({ title, children }: React.PropsWithChildren<{ title: string }>
 
 function Tag({ label }: { label: string }) {
   return (
-    <span className="inline-block text-xs px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-700">
+    <span className="inline-block text-[10px] px-2 py-0.5 rounded-full bg-violet-50 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-700 font-medium">
       {label}
     </span>
   );
@@ -22,22 +22,24 @@ function Tag({ label }: { label: string }) {
 
 export default function Resume() {
   return (
-    <article className="mx-auto max-w-3xl bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 rounded-2xl p-6 md:p-10 shadow-sm print:shadow-none print:p-0 space-y-8">
+    <article className="mx-auto max-w-3xl bg-white text-gray-900 dark:bg-[#0d0d14] dark:text-gray-100 rounded-2xl p-6 md:p-10 shadow-xl shadow-black/5 dark:shadow-violet-950/20 print:shadow-none print:p-0 space-y-8 border border-gray-100 dark:border-gray-800">
       {/* Header */}
-      <header className="border-b border-gray-200 dark:border-gray-700 pb-5">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight">{profile.name}</h1>
-        <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 flex flex-wrap gap-x-3 gap-y-1">
+      <header className="border-b border-gray-100 dark:border-gray-800 pb-6 space-y-2">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-violet-500 to-indigo-500 bg-clip-text text-transparent">
+          {profile.name}
+        </h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400 flex flex-wrap gap-x-2 gap-y-1">
           <span>{profile.location}</span>
-          <span>·</span>
+          <span className="text-gray-300 dark:text-gray-600">·</span>
           <span>{profile.phone}</span>
-          <span>·</span>
-          <a className="underline hover:text-blue-500" href={`mailto:${profile.email}`}>{profile.email}</a>
-          <span>·</span>
-          <a className="underline hover:text-blue-500" href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
-          <span>·</span>
-          <a className="underline hover:text-blue-500" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-          <span>·</span>
-          <a className="underline hover:text-blue-500" href={profile.leetcode} target="_blank" rel="noreferrer">LeetCode</a>
+          <span className="text-gray-300 dark:text-gray-600">·</span>
+          <a className="hover:text-violet-500 transition-colors" href={`mailto:${profile.email}`}>{profile.email}</a>
+          <span className="text-gray-300 dark:text-gray-600">·</span>
+          <a className="hover:text-violet-500 transition-colors" href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
+          <span className="text-gray-300 dark:text-gray-600">·</span>
+          <a className="hover:text-violet-500 transition-colors" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          <span className="text-gray-300 dark:text-gray-600">·</span>
+          <a className="hover:text-violet-500 transition-colors" href={profile.leetcode} target="_blank" rel="noreferrer">LeetCode</a>
         </p>
       </header>
 
@@ -45,15 +47,20 @@ export default function Resume() {
       <Section title="Professional Experience">
         {experiences.map((exp) => (
           <div key={exp.company} className="space-y-2">
-            <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
-              <h3 className="font-semibold text-base">
-                {exp.company}
-                <span className="font-normal text-gray-500 dark:text-gray-400"> — {exp.title}</span>
-              </h3>
-              <span className="text-xs text-gray-400 whitespace-nowrap">{exp.start} – {exp.end} · {exp.location}</span>
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-1">
+              <div>
+                <span className="font-semibold text-[15px]">{exp.company}</span>
+                <span className="text-gray-500 dark:text-gray-400 text-sm"> — {exp.title}</span>
+              </div>
+              <span className="text-xs text-gray-400 whitespace-nowrap shrink-0">{exp.start} – {exp.end} · {exp.location}</span>
             </div>
-            <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300">
-              {exp.bullets.map((b, i) => <li key={i}>{b}</li>)}
+            <ul className="list-none space-y-1.5">
+              {exp.bullets.map((b, i) => (
+                <li key={i} className="text-sm text-gray-600 dark:text-gray-300 flex gap-2">
+                  <span className="text-violet-400 mt-1 shrink-0">▸</span>
+                  <span>{b}</span>
+                </li>
+              ))}
             </ul>
           </div>
         ))}
@@ -67,8 +74,13 @@ export default function Resume() {
               <h3 className="font-semibold text-sm">{p.name}</h3>
               {p.tags.map((t) => <Tag key={t} label={t} />)}
             </div>
-            <ul className="list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300">
-              {p.details.map((d, i) => <li key={i}>{d}</li>)}
+            <ul className="list-none space-y-1.5">
+              {p.details.map((d, i) => (
+                <li key={i} className="text-sm text-gray-600 dark:text-gray-300 flex gap-2">
+                  <span className="text-violet-400 mt-1 shrink-0">▸</span>
+                  <span>{d}</span>
+                </li>
+              ))}
             </ul>
           </div>
         ))}
@@ -77,14 +89,26 @@ export default function Resume() {
       {/* Education */}
       <Section title="Education">
         {education.map((e) => (
-          <div key={e.school} className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+          <div key={e.school} className="flex flex-col md:flex-row md:items-start md:justify-between gap-1">
             <div>
-              <span className="font-medium text-sm">{e.school}</span>
+              <p className="font-semibold text-sm">{e.school}</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">{e.degree}</p>
             </div>
-            <span className="text-xs text-gray-400 whitespace-nowrap">{e.start} – {e.end}</span>
+            <span className="text-xs text-gray-400 whitespace-nowrap shrink-0">{e.start} – {e.end}</span>
           </div>
         ))}
+      </Section>
+
+      {/* Certifications */}
+      <Section title="Certifications">
+        <div className="grid sm:grid-cols-2 gap-3">
+          {certifications.map((c) => (
+            <div key={c.name} className="rounded-xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 px-4 py-3 space-y-0.5">
+              <p className="text-sm font-medium leading-snug">{c.name}</p>
+              <p className="text-xs text-gray-400">{c.issuer} · {c.date}</p>
+            </div>
+          ))}
+        </div>
       </Section>
 
       {/* Skills */}
