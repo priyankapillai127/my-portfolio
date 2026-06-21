@@ -18,7 +18,7 @@ export default function ResumeInteractive() {
         </div>
         <div className="hidden sm:flex gap-2 print:hidden">
           <CopyEmail email={profile.email} />
-          <DownloadBtn href="/PriyankaPillaiSDE2.pdf" />
+          <DownloadBtn href="/Priyanka_Pillai_Resume.pdf" />
           <PrintBtn />
         </div>
       </div>
